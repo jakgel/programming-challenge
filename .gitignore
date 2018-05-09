@@ -38,4 +38,4 @@ fabric.properties
 /.idea/misc.xml
 
 # Added by JG
-.ipynb_checkpoints/
+*.ipynb_checkpoints*
