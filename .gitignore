@@ -36,3 +36,6 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 /.idea/misc.xml
+
+# Added by JG
+.ipynb_checkpoints/
