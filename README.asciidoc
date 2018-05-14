@@ -1,14 +1,4 @@
-= eXXcellent programming challenge
-
-This repository provides the project scaffold for a simple
-programming challenge. Though the challenge is very simple
-and a rather synthetic use-case, your results are a helpful
-starting point to discuss your programming flavor, skills
-and methodology.
-
-**BEFORE STARTING:** Please take the time and read this 
-document completely and carefully! It describes important 
-parts of the challenge.
+= eXXcellent programming challenge: Solution
 
 
 == Goal
@@ -19,28 +9,17 @@ Implement a solution for the given tasks which aims for
 * readability & maintainability
 * clean software design & architecture
 
-Be prepared to discuss your implementation and software design
-decisions. Show us how you would solve the task when working on your day-to-day 
-job.
+I will also discuss my implementation and software design
+decisions.
 
-Feel free to come up with own ideas & solutions. There is no plain
-"right" or "wrong". Instead, we want to talk to you
-about _how_ you achieved your goal and about your thoughts and design
-idea and process.
-
-If you feel bored by our challenge, feel free to provide
-creative alternative solutions and/or choose other technologies/
-languages, if you think they would be a better fit.
-
+To get an handle of this situation I started investigaing the hole situation with the programming language I am most fluent with - python.
+For that I created a jupyter notebook *investigate_csv.ibnpy* in python 3.5 because it provides a meaningless implementation of documentation and code.
 
 
 == Tasks
 
-=== Time estimation
-Between ~1 hour up to ~3.5 hours,  +
-depending on your previous experience & development environment.
 
-=== Task
+=== Task (taken from the original challenge)
 
 Weather::
     In `weather.csv` you’ll find the daily weather data of a single month.
@@ -71,85 +50,19 @@ Process::
 * Try to follow a test-driven development approach.
 
 
-=== Hints
+=== Separation of concerns
 
-Your solution should focus on **maintainability**, **reusability** and
-**readability**. Here are some hints on how you may achieve these goals:
 
-1. The most important aspect is **separation of concerns**. Think about
-   the different concerns involved in the task and how they may need to
-   change in the future. For example: one concern is reading the file.
-   What others components can you think of? Try to design separate,
-   concise software components for each concern.
+=== A quick diagram
 
-2. Often a quick diagram illustrating the components and their interactions
-   can be helpful. If you draw a diagram, feel free to include it in your
-   solution.
 
-3. Design **intuitive interfaces** for the components in a way that each
-   component can be replaced. For example in the next evolution step
-   of your solution you might need to support other data formats like
-   JSON files or even Web services. The Reader for the CSV-files in your
-   example could be replaced with a reader that implements the same
-   interface but reads JSON-files.
+== Process
 
-4. Use **meaningful names** for classes, properties and methods. By
-   reading the name, one should already have an idea of what something
-   does.
+I choose to start with an advanced IDE
+following "Getting started" of the original branch I created a subbranch.
 
-5. Document your development by **small, frequent git commits that address
-   a specific matter** each (e.g a feature). Try to make the commit messages
-   as expressive as possible, so a reader knows what a commit does.
-
-== Getting started
-
-=== Getting a copy
-The starting point for every challenge is provided as a branch in a Gitlab.com/GitHub
-hosted Git repository. Be careful to adjust the URLs below
-accordingly.
-
-To start
-
-=== Fork or directly clone the repository
-
-```
-git clone https://[gitlab|github].com/exxcellent/programming-challenge.git
-```
-or if you've forked the repository then
-```
-git clone git@[gitlab|github].com:YOURNAME/programming-challenge.git
-```
-
-See what challenges are available by listing the branches present:
-```
-git branch -a
-```
-
-=== Switch to the branch of the challenge assinged
-```
-cd programming-challenge
-git checkout challenge-CHALLENGENAME
-```
-
-=== Building and running
-The project scaffolds provides a Maven `pom.xml` as starting
-point. You should be able to start with any IDE or text editor
-you are convenient with.
-
-After installing Maven 3.x you should be able to
-
-Run the main class _de.exxcellent.challenge.App_::
-    `mvn clean compile exec:java`
-
-Build & test your project::
-    `mvn clean test`.
-
-Or use your IDE functionality::
-    to run & debug you program.
-
-== Submitting your results
-
-Ideally you provide your solutions as Git repository with
-appropriate commits and descriptions. If you have a GitLab.com
-or GitHub account, please feel free to publish your solution
-there.
+Besides JDK and maven I also installed and configured IntelliJ IDEA:
+- First I followed the https://www3.ntu.edu.sg/home/ehchua/programming/howto/JDK_Howto.html
+to install java development kit 10.0.1
+- To install maven I used >>sudo apt install maven
+- Then I installed  IntelliJ IDEA common tool via https://www.jetbrains.com/idea/download/#section=linux and added a project.
