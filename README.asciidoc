@@ -48,7 +48,11 @@ Process::
 
 
 === Separation of concerns
-
+* Specifiy a file to read
+* Read the file content. Exspected format is header + a array like structure
+* Choose two columns to compare all values with
+* Find the row with the minimum difference of the values
+* Return/Print this row
 
 === A quick diagram
 
@@ -72,5 +76,11 @@ to install java development kit 10.0.1
 As this would be my first java script I would heavily work with other libraries if they were:
 - commonly used
 - and gave they impression that they are maintained
+For reading the CSV I devided to use commonsCSV, also because it allows Line reading by a columns name.
 
+I read https://www.callicoder.com/java-read-write-csv-file-apache-commons-csv/ to get an handle on how to use this method.
+I realized that it might be not very straightforward to access all elements as an array. After reading https://www.tutorialspoint.com/java/java_arraylist_class.htm I also thought that using an ArrayList object might become handy.
+But first, I add to admit that I was quite unsure about the common way to store table output in java. Hence I decided to start simple and change the first concern
+'Read CSV' into 'Load the three relevant columns'.
 
+This will become handy later in compare_columns().
