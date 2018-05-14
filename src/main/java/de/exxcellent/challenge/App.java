@@ -82,6 +82,37 @@ class TableDataset {
         System.out.printf("ColB : %s%n", this.colB);
     }
 
+    ArrayList<String> compare_columns() {
+        /* This method will compare the two columns */
+
+        this.countmin =  new ArrayList<>();
+        this.argmin   =  Float.NaN;   // Double.POSITIVE_INFINITY;
+
+
+        Iterator<String> id = colid.iterator();
+        Iterator<Float> A = colA.iterator();
+        Iterator<Float> B = colB.iterator();
+
+        while (id.hasNext() && A.hasNext() && B.hasNext()) {
+            float diff     = A.next()-B.next();
+            String iduse   = id.next();
+
+            // If new record is set, update the variables
+            if (diff < this.argmin){
+                this.countmin   = new ArrayList<Iterator<String>>();
+                this.argmin     = diff;
+            }
+
+            // Add the identifier id
+            if (diff == this.argmin) {
+                this.countmin.add(iduse);
+            }
+
+        }
+
+
+        return this.countmin;
+    }
 }
 
 

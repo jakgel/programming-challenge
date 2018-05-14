@@ -12,7 +12,6 @@ Implement a solution for the given tasks which aims for
 I will also discuss my implementation and software design
 decisions.
 
-
 == Tasks
 
 
