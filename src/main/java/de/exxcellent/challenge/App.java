@@ -1,14 +1,15 @@
 package de.exxcellent.challenge;
 
-//import au.com.bytecode.opencsv.*;
-//import commoncsv;
-//import au.com.bytecode.opencsv.*;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 
 /**
  * The entry class for your solution. This class is only aimed as starting point and not intended as baseline for your software
  * design. Read: create your own classes and packages as appropriate.
  *
  * @author Benjamin Schmid <benjamin.schmid@exxcellent.de>
+ * @author Jakob Gelszinnis <jgelszinnis@gmail.com>
  */
 public final class App {
 
