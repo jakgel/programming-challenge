@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Objects;
+import java.io.IOException;
 
 /**
  * Example JUnit4 test case.
@@ -17,15 +17,15 @@ public class AppTest {
 
     @Before
     public void setUp() throws Exception {
-        successLabel = "successful";
 
+
+        /* most likely not needed anymore
+        successLabel = "successful";
 
 
         TableDataset ds1 = new TableDataset("weather.csv", "Day", "MxT","MnT");
         TableDataset ds2 = new TableDataset("football.csv", "Team", "Goals","Goals Allowed");
 
-        System.out.printf("____ %s%n", ds1.compare_columns_out());
-        System.out.printf("____ %s%n", ds2.compare_columns_out());
 
         if (!Objects.equals("14",  ds1.compare_columns_out())){
             successLabel = "failed";
@@ -34,12 +34,20 @@ public class AppTest {
             successLabel = "failed";
         }
 
+        */
+
     }
 
     @Test
-    public void aSimpleTest() {
-        Assert.assertEquals("Expectations met", "successful", successLabel);
+    public void aSimpleTest() throws IOException {
+        TableDataset ds1 = new TableDataset("weather.csv", "Day", "MxT","MnT");
+        Assert.assertEquals("Dataset 'weather'", "14" , ds1.compare_columns_out());
+    }
 
+    @Test
+    public void aSimpleTest2() throws IOException {
+        TableDataset ds2 = new TableDataset("football.csv", "Team", "Goals","Goals Allowed");
+        Assert.assertEquals("Dataset 'foodball'", "Aston_Villa" , ds2.compare_columns_out());
     }
 
 }
