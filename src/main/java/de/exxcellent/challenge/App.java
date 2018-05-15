@@ -8,8 +8,7 @@ import java.util.*;
 
 
 /**
- * The entry class for your solution. This class is only aimed as starting point and not intended as baseline for your software
- * design. Read: create your own classes and packages as appropriate.
+ * The entry class for my solution.
  *
  * @author Benjamin Schmid <benjamin.schmid@exxcellent.de>
  * @author Jakob Gelszinnis <jgelszinnis@gmail.com>
@@ -30,11 +29,8 @@ public final class App {
         ds2.loadfile("Team", "Goals","Goals Allowed");
 
         // My day analysis function call + some formating
-        System.out.printf(" _________ %s%n", String.join(" ; ", ds1.compare_columns()));
-
-
-        String dayWithSmallestTempSpread = String.join(" ; ", ds1.compare_columns());
-        String teamWithSmallesGoalSpread = String.join(" ; ", ds2.compare_columns());
+        String dayWithSmallestTempSpread = ds1.compare_columns_out();
+        String teamWithSmallesGoalSpread = ds2.compare_columns_out();
 
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
         System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallesGoalSpread);
@@ -125,6 +121,11 @@ class TableDataset {
 
 
         return this.countmin;
+    }
+
+    String compare_columns_out() {
+        /*  A wrapper for an utility function */
+        return String.join(" ; ", this.compare_columns());
     }
 }
 

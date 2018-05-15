@@ -24,7 +24,7 @@ public class AppTest {
         TableDataset ds1 = new TableDataset("weather.csv");
         ds1.loadfile("Day", "MxT","MnT");
 
-        if (!Objects.equals("14", String.join(" ; ", ds1.compare_columns()))){
+        if (!Objects.equals("14",  ds1.compare_columns_out())){
             successLabel = "failed";
         }
 
@@ -32,17 +32,18 @@ public class AppTest {
         TableDataset ds2 = new TableDataset("football.csv");
         ds2.loadfile("Team", "Goals","Goals Allowed");
 
-        if (!Objects.equals("Aston_Villa", String.join(" ; ", ds2.compare_columns()))){
+        if (!Objects.equals("Aston_Villa", ds2.compare_columns_out())){
             successLabel = "failed";
         }
 
-        System.out.printf("____ %s%n", String.join(" ; ", ds1.compare_columns()));
-        System.out.printf("____ %s%n", String.join(" ; ", ds2.compare_columns()));
+        System.out.printf("____ %s%n", ds1.compare_columns_out());
+        System.out.printf("____ %s%n", ds2.compare_columns_out());
     }
 
     @Test
     public void aSimpleTest() {
         Assert.assertEquals("Expectations met", "successful", successLabel);
+
     }
 
 }
