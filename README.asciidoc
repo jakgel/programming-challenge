@@ -54,7 +54,7 @@ Process::
 * Return/Print this row
 
 === A quick diagram
-image::./img/scheme.jpg
+image::./img/Scheme.jpg[Scheme of the implemented solution, width=95%]
 
 == Process:
 
