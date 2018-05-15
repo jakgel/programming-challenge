@@ -93,17 +93,19 @@ class TableDataset {
            that refer to the rows with the smallest difference colA-colB
         */
 
-        this.countmin =  new ArrayList<>();
-        this.argmin   =  Float.NaN;   // Double.POSITIVE_INFINITY;
-
 
         Iterator<String> id = colid.iterator();
         Iterator<Float> A = colA.iterator();
         Iterator<Float> B = colB.iterator();
 
+        this.countmin =  new ArrayList<>();
+        this.countmin.add(id.next());
+        this.argmin   = (float) A.next()-B.next(); // Float.NaN;   // Double.POSITIVE_INFINITY;
+
 
         /* We go through each line and update the argmin and countmin parameter if needed */
         while (id.hasNext() && A.hasNext() && B.hasNext()) {
+
             float diff     = A.next()-B.next();
             String iduse   = id.next();
 
@@ -118,7 +120,10 @@ class TableDataset {
                 this.countmin.add(iduse);
             }
 
+            PrintStream printf = System.out.printf("______ %s : %s ____ %s%n", diff, this.argmin, iduse);
+
         }
+
 
         return this.countmin;
     }
