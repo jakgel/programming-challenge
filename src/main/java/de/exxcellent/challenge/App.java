@@ -18,7 +18,7 @@ public final class App {
 
     public static void main(String... args) throws IOException {
 
-        // Your preparation code …
+        // My preparation code …
 
 
         // invoke the constructor
@@ -29,9 +29,9 @@ public final class App {
         TableDataset ds2 = new TableDataset("football.csv");
         ds2.loadfile("Team", "Goals","Goals Allowed");
 
-
-        String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
-        String teamWithSmallesGoalSpread = "A good team"; // Your goal analysis function call …
+        // My day analysis function call + some formating
+        String dayWithSmallestTempSpread = String.join(" ; ", ds1.compare_columns());
+        String teamWithSmallesGoalSpread = String.join(" ; ", ds2.compare_columns());
 
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
         System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallesGoalSpread);
@@ -50,8 +50,8 @@ class TableDataset {
     private ArrayList<Float> colA; //float
     private ArrayList<Float> colB; //float
 
-//    private ArrayList<String> countmin;
-//    private float argmin;
+    private ArrayList<String> countmin;
+    private float argmin;
 
     /*  The constructor   */
     TableDataset(String filename) {
@@ -61,6 +61,11 @@ class TableDataset {
     void loadfile(String colid, String colA, String colB) throws IOException {
         /*
         This function should sets the file and save the three columns of interest
+
+        Input:
+           - column identifier for the id
+           - column identifier for the first column
+           - column identifier for the ssecond column
        */
 
         // The id will be strings, the  column values will be floats, because we take the difference between them.
@@ -77,13 +82,13 @@ class TableDataset {
 
         }
 
-        System.out.printf("Colid: %s%n", this.colid);
-        System.out.printf("ColA : %s%n", this.colA );
-        System.out.printf("ColB : %s%n", this.colB);
     }
 
     ArrayList<String> compare_columns() {
-        /* This method will compare the two columns */
+        /* This method will compare the two columns
+           To be more specific, in this implementation we will return the ArrayList of the columnIDs
+           that refer to the rows with the smallest difference colA-colB
+        */
 
         this.countmin =  new ArrayList<>();
         this.argmin   =  Float.NaN;   // Double.POSITIVE_INFINITY;
@@ -93,13 +98,15 @@ class TableDataset {
         Iterator<Float> A = colA.iterator();
         Iterator<Float> B = colB.iterator();
 
+
+        /* We go through each line and update the argmin and countmin parameter if needed */
         while (id.hasNext() && A.hasNext() && B.hasNext()) {
             float diff     = A.next()-B.next();
             String iduse   = id.next();
 
             // If new record is set, update the variables
             if (diff < this.argmin){
-                this.countmin   = new ArrayList<Iterator<String>>();
+                this.countmin.clear();
                 this.argmin     = diff;
             }
 
@@ -109,7 +116,6 @@ class TableDataset {
             }
 
         }
-
 
         return this.countmin;
     }
