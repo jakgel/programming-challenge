@@ -90,7 +90,7 @@ class TableDataset {
     ArrayList<String> compare_columns() {
         /* This method will compare the two columns
            To be more specific, in this implementation we will return the ArrayList of the columnIDs
-           that refer to the rows with the smallest difference colA-colB
+           that refer to the rows with the smallest absolute difference colA-colB
         */
 
 
@@ -100,13 +100,14 @@ class TableDataset {
 
         this.countmin =  new ArrayList<>();
         this.countmin.add(id.next());
-        this.argmin   = (float) A.next()-B.next(); // Float.NaN;   // Double.POSITIVE_INFINITY;
+        this.argmin   = (float) Math.abs(A.next()-B.next()); // Float.NaN;   // Double.POSITIVE_INFINITY;
 
 
         /* We go through each line and update the argmin and countmin parameter if needed */
         while (id.hasNext() && A.hasNext() && B.hasNext()) {
 
-            float diff     = A.next()-B.next();
+            float diff;
+            diff = Math.abs(A.next()-B.next());
             String iduse   = id.next();
 
             // If new record is set, update the variables
@@ -119,8 +120,6 @@ class TableDataset {
             if (diff == this.argmin) {
                 this.countmin.add(iduse);
             }
-
-            PrintStream printf = System.out.printf("______ %s : %s ____ %s%n", diff, this.argmin, iduse);
 
         }
 

@@ -32,7 +32,7 @@ public class AppTest {
         TableDataset ds2 = new TableDataset("football.csv");
         ds2.loadfile("Team", "Goals","Goals Allowed");
 
-        if (!Objects.equals("Leicester", String.join(" ; ", ds2.compare_columns()))){
+        if (!Objects.equals("Aston_Villa", String.join(" ; ", ds2.compare_columns()))){
             successLabel = "failed";
         }
 
