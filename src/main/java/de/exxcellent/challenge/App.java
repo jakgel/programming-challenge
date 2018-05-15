@@ -20,13 +20,9 @@ public final class App {
         // My preparation code …
 
 
-        // invoke the constructor
-        TableDataset ds1 = new TableDataset("weather.csv");
-        // invoke the method
-        ds1.loadfile("Day", "MxT","MnT");
-
-        TableDataset ds2 = new TableDataset("football.csv");
-        ds2.loadfile("Team", "Goals","Goals Allowed");
+        // invoke the constructor + method
+        TableDataset ds1 = new TableDataset("weather.csv", "Day", "MxT","MnT");
+        TableDataset ds2 = new TableDataset("football.csv", "Team", "Goals","Goals Allowed");
 
         // My day analysis function call + some formating
         String dayWithSmallestTempSpread = ds1.compare_columns_out();
@@ -52,9 +48,14 @@ class TableDataset {
     private ArrayList<String> countmin;
     private float argmin;
 
-    /*  The constructor   */
+    /*  The constructor(s)   */
     TableDataset(String filename) {
         this.filename = filename;
+    }
+
+    TableDataset(String filename, String colid, String colA, String colB) throws IOException {
+        this.filename = filename;
+        loadfile(colid, colA, colB);
     }
 
     void loadfile(String colid, String colA, String colB) throws IOException {
