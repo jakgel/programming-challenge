@@ -30,6 +30,9 @@ public final class App {
         ds2.loadfile("Team", "Goals","Goals Allowed");
 
         // My day analysis function call + some formating
+        System.out.printf(" _________ %s%n", String.join(" ; ", ds1.compare_columns()));
+
+
         String dayWithSmallestTempSpread = String.join(" ; ", ds1.compare_columns());
         String teamWithSmallesGoalSpread = String.join(" ; ", ds2.compare_columns());
 
