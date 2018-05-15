@@ -47,14 +47,14 @@ Process::
 
 
 === Separation of concerns
-* Specifiy a file to read
-* Read the file content. Exspected format is header + a array like structure
-* Choose two columns to compare all values with
+* Specify a file to read
+* Read the file content. Expected format is header + a array like structure
+* Choose two columns to compare all values with and a third column as identifier
 * Find the row with the minimum difference of the values
 * Return/Print this row
 
 === A quick diagram
-
+image::./img/scheme.jpg
 
 == Process:
 
